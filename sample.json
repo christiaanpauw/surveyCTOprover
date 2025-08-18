@@ -1,0 +1,9 @@
+{
+  "hh_id": "ZA-0001",
+  "head_name": "Jane Doe",
+  "members": [
+    { "age": 29 },
+    { "age": 7 }
+  ],
+  "income": 1234.5
+}

@@ -5,7 +5,7 @@
     # Hedera configuration can be provided via environment variables or a .env file.
     # Example .env is provided as .env.example
 
-    .PHONY: tidy build run docker-build docker-run docker-stop clean test up down
+    .PHONY: tidy build run docker-build docker-run docker-stop clean test up down verify
 
     tidy:
     	go mod tidy
@@ -48,6 +48,12 @@
 
     down: docker-stop
     	@echo "Container stopped and removed."
+
+    verify:
+    	@echo "Building verifier..."
+    	go build -o bin/verify verify.go
+    	@echo "Run the verifier with your own arguments, e.g.:"
+    	@echo "./bin/verify -data sample.json -topic-id 0.0.1234567 -network testnet"
 
     clean:
     	rm -rf bin
