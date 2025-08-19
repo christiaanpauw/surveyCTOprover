@@ -19,6 +19,7 @@ RUN --mount=type=cache,target=/go/pkg/mod go mod download
 COPY . .
 
 # Build static binary
+RUN go mod tidy
 RUN --mount=type=cache,target=/root/.cache/go-build         CGO_ENABLED=0 GOOS=linux GOARCH=amd64         go build -trimpath -ldflags="-s -w" -o server .
 
 ### Runtime stage
