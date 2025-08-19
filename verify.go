@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	hedera "github.com/hashgraph/hedera-sdk-go/v2"
+	hedera "github.com/hiero-ledger/hiero-sdk-go/v2"
 )
 
 // canonicalMarshal recursively sorts map keys and renders minimal JSON.
