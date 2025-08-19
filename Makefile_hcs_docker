@@ -1,0 +1,10 @@
+
+# Build the Hedera poster helper
+post-hcs-build:
+	go build -o bin/post_hcs post_hcs.go
+
+# Run an attested container execution and post its hash to Hedera.
+# Use variables to pass docker flags and image:
+#   make attest-run ATT_FLAGS="-e FOO=bar -v /data:/data" ATT_IMAGE="registry/org/app@sha256:ABCD..." ATT_CMD="--serve"
+attest-run: post-hcs-build
+	./attested-run.sh $${ATT_FLAGS} -- $${ATT_IMAGE} $${ATT_CMD}
