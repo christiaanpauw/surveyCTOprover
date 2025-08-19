@@ -9,7 +9,7 @@ RUN apk add --no-cache git ca-certificates && update-ca-certificates
 
 # Module files first (better layer caching)
 COPY go.mod ./
-COPY go.sum ./
+RUN if [ -f go.sum ]; then cp go.sum .; fi
 RUN --mount=type=cache,target=/go/pkg/mod go mod download
 
 # Copy source
