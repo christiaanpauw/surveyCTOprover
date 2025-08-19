@@ -4,6 +4,9 @@
 FROM golang:1.22-alpine AS builder
 WORKDIR /app
 
+RUN wget https://go.dev/dl/go1.23.5.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.23.5.linux-amd64.tar.gz
+
 # Install tools and certs
 RUN apk add --no-cache git ca-certificates && update-ca-certificates
 
