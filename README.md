@@ -76,6 +76,8 @@ Keep this exact structure even when no attachments are present (attachments root
    - `OPERATOR_KEY` = your private key (e.g., `302e0201...`)
    - `TOPIC_ID` = your topic ID (e.g., `0.0.1234567`)
 
+Once you have these values, run `./setup.sh` to copy `env.example` to `.env` and install any Go module dependencies.
+
 ---
 
 ## 5) Go implementation (server)
