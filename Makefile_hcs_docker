@@ -4,7 +4,9 @@ post-hcs-build:
 	go build -o bin/post_hcs post_hcs.go
 
 # Run an attested container execution and post its hash to Hedera.
-# Use variables to pass docker flags and image:
-#   make attest-run ATT_FLAGS="-e FOO=bar -v /data:/data" ATT_IMAGE="registry/org/app@sha256:ABCD..." ATT_CMD="--serve"
+# attested-run.sh reads ATT_FLAGS, ATT_IMAGE and ATT_CMD from the environment
+# and falls back to values in a .env file if they are not set.
+# Example:
+#   ATT_IMAGE="registry/org/app@sha256:ABCD..." make attest-run
 attest-run: post-hcs-build
-	./attested-run.sh $${ATT_FLAGS} -- $${ATT_IMAGE} $${ATT_CMD}
+        ./attested-run.sh

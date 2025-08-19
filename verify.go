@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -129,12 +128,12 @@ func readFileBytes(path string) ([]byte, error) {
 
 func main() {
 	var (
-		dataPath   string
-		attPaths   multiFlag
-		network    string
-		topicIDStr string
+		dataPath     string
+		attPaths     multiFlag
+		network      string
+		topicIDStr   string
 		startRFC3339 string
-		timeoutSec int
+		timeoutSec   int
 		// Optional: operator credentials are NOT required for read-only queries; omit unless needed
 	)
 
